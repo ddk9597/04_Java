@@ -10,7 +10,6 @@ public class VariableEx3 {
 		  * 	-> 데이터 손실 고려
 		  * 
 		  * 2. 의도적으로 자료형을 다른 자료형으로 변환시킬 때
-		  * 	-> 
 		  *  
 		  *  [작성법]
 		  *  
@@ -34,8 +33,8 @@ public class VariableEx3 {
 		
 		double num2 = 123.123456789;
 		int result2 = (int) num2 ; // 강제형변환
-		System.out.println("num2 : " + num2 );
-		System.out.println("result2 : " + result2 );
+		System.out.println("num2 : " + num2 ); // 123.123456789
+		System.out.println("result2 : " + result2 ); // 123
 		
 		/* 난수 + 강제형변환*/
 		
@@ -93,6 +92,24 @@ public class VariableEx3 {
 		
 		System.out.println("temp1 :" + temp1); //  127
 		System.out.println("temp2 :" + temp2); // -128
+		
+		
+		String str1 = "밥" ;
+		System.out.println("str1 : " + str1);
+		
+		String str2 = new String ("김밥");
+		System.out.println("str2 : " + str2);
+		
+		String str3 = new String ("김밥") + " " + "단무지" + " " + "빼주세요";
+		System.out.println("str3 : " + str3);
+		
+		String str4 = "김밥 단무지 빼달라니까" + " " + "햄을 빼주시면 어떡해요";
+		System.out.println("str4 : " + str4);
+		
+		String str5 = "참치 김밥 " + 5 + "줄 주세요";
+		System.out.println("str5 : " + str5);
+		
+		
 		
 	}
 }
