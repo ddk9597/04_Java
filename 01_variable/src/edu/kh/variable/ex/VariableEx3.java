@@ -95,7 +95,7 @@ public class VariableEx3 {
 		
 		
 		String str1 = "밥" ;
-		System.out.println("str1 : " + str1);
+		System.out.println("str1 : " + str1); 
 		
 		String str2 = new String ("김밥");
 		System.out.println("str2 : " + str2);
