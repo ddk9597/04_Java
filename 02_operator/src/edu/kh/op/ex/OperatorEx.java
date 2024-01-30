@@ -73,6 +73,85 @@ public class OperatorEx {
 		
 	}
 	
+	/**
+	 * 홀짝 검사기 v2
+	 * <p>입력 받은 정수가 홀수 | 짝수 | 0인지 판별</p>
+	 * 
+	 * <pre>
+	 * - case1.
+	 * 	 	정수입력 : 0
+	 * 	 	0 입니다
+	 * 
+	 * - case2
+	 * 		정수입력 : 4
+	 * 		짝수 입니다
+	 * 
+	 * - case 3
+	 * 		정수입력 : 7
+	 * 		홀수 입니다.
+	 * </pre>
+	 */
+	public void method4() { 
+		
+		// 스캐너 객체 생성
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		
+		int input = sc.nextInt();
+		
+		if(input == 0) {System.out.print("0 입니다.");}
+		else {
+			if(input % 2 == 0) {System.out.print("짝수입니다.");}
+			if(input % 2 != 0) {System.out.print("홀수입니다.");}
+		}
+				
+	}
 	
+	
+	
+		/**
+		 *  이중 삼항연산자로 0 짝 홀 판별
+		 */
+		public void method5() { 
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		
+		int input = sc.nextInt();
+		
+		String result = input == 0 ? "0" : (input % 2 ==0 ? "짝수" : "홀수");
+		
+		System.out.print(result + "입니다.");
+		}
+		
+		
+	
+		/**
+		 * 삼항연산자의 다른 방법으로 0 짝 홀 판별
+		 */
+		public void method6() { 
+			
+			// Scanner 객체 생성
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.print("정수 입력 : ");
+			int input = sc.nextInt();
+			
+//			String result 
+//				= (input == 0) ? "0" : ( input % 2 == 0 ? "짝수" : "홀수"); 
+			
+			String result 
+				= input % 2 == 0 ? (input != 0 ? "짝수" : "0") : "홀수"; 
+
+//			boolean isZero = input == 0; // 0인지 검사
+//			boolean isTrue = input % 2 == 0; // 짝수/홀수 검사
+//			String result = isZero ? "0" : ( isTrue ? "짝수" : "홀수" );
+			
+			System.out.println(result + " 입니다");
+		}
+		
 	
 }
