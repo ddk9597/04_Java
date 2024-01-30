@@ -324,6 +324,7 @@ public class ConditionEx {
 		boolean flag = false;
 		String result = "";
 		
+		// if 문은 T,F 결과 관계 없이 계속 수행한다. if-else 문과 차이
 		if(kor < 40) { result += "국어 "; flag = true; }
 		if(eng < 40) { result += "영어 "; flag = true; }
 		if(mat < 40) { result += "수학 "; flag = true; }
@@ -350,33 +351,74 @@ public class ConditionEx {
 	
 	
 	
+	// 점수 입력 과락 연습하기
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void method7() {
+		
+		String checkInput = "올바른 값을 입력하세요.";
+		
+		System.out.print("국어 점수를 입력하세요 :");
+		int kor = sc.nextInt();
+		while(kor < 0 || kor > 100) { System.out.println(checkInput); 
+		kor = sc.nextInt(); }
+		
+		System.out.print("영어 점수를 입력하세요 :");
+		int eng = sc.nextInt();
+		while(eng < 0 || eng > 100) {System.out.println(checkInput);
+		eng = sc.nextInt();}
+		
+		System.out.print("수학 점수를 입력하세요 :");
+		int mat = sc.nextInt();
+		while(mat < 0 || mat > 100) { System.out.println(checkInput);
+		mat = sc.nextInt();}
+		
+		System.out.print("사회 점수를 입력하세요 :");
+		int soc = sc.nextInt();
+		while(soc < 0 || soc > 100) { System.out.println(checkInput);
+		soc = sc.nextInt();}
+		
+		System.out.print("과학 점수를 입력하세요 :");
+		int sci = sc.nextInt();
+		while(sci < 0 || sci > 100) { System.out.println(checkInput);
+		sci = sc.nextInt();}
+		
+		// 과락 존재하는 경우
+		
+		String result = "";
+		boolean flag = false;
+		
+		switch(0) {
+		case 0 : if (kor < 40) { result += "국어 "; flag = true;}
+		case 1 : if (eng < 40) { result += "영어 "; flag = true;}
+		case 2 : if (mat < 40) { result += "수학 "; flag = true;}
+		case 3 : if (soc < 40) { result += "사회 "; flag = true;}
+		case 4 : if (sci < 40) { result += "과학 "; flag = true;}
+		break;
+		default : break;
+		}
+		
+		if(flag) {
+		System.out.printf("FAIL, 40 점 미만 과목 : %s", result );
+		return;
+		}
+		
+		// 평균 계산
+		double avr = (kor + eng + mat + soc + sci) / 5.0 ;
+		
+		if(avr<60) {
+			System.out.printf("FAIL, 평균 점수 %.1f: ", avr);
+		}else {
+			System.out.printf("PASS, 평균 점수 %.1f: ", avr);
+		}
+		
+		
+	}
 	
 	
 	
 }
+
+
+
 
 
