@@ -76,9 +76,46 @@ public class Member {
 	}
 	
 	
+	// 오버로딩을 이용해 생성자 만들기
+	public Member(String memberId) { // 매개 변수가 다름
+		this.memberId = memberId;
+	}
 	
+	// 매개변수 개수가 다름
+	public Member(String memberId, String memberPw) {
+		this.memberId = memberId;
+		this.memberPw = memberPw;
+		
+	}
 	
+	// 매개변수 타입이 다름
+	public Member(String memberId, int memberAge) {
+		this.memberId  = memberId;
+		this.memberAge = memberAge;
+	}
 	
+	// 매개변수 순서가 다름
+	public Member(int memberAge, String memberId) {
+		this.memberAge = memberAge;
+		this.memberId  = memberId;
+	}
+	
+	// 오버로딩이 안되는 경우
+	// 위의 것과 자료형과 그 순서가 같음
+	// ->Member(int, String) 생성자 중복
+	// 컴파일러는 변수명 관계없이 자료형의 개수, 순서, 타입 중
+	// 하나로도 달라야 오버로딩을 성립시킨다!
+//	public Member(int memberAge, String memberPw) {}
+		
+	
+	/* this() 생성자 */
+	// 현재 클래스에 있는 다른 생성자를 호출
+	// -> 코드 중복 감소(길이 감소)
+	
+	public Member(int memberAge, String memberId, String memberPw) {
+		this(memberAge, memberId);
+		this.memberPw = memberPw;
+	}
 	
 	
 	
