@@ -46,10 +46,10 @@ public class ScannerEx1 {
 		System.out.print("정수입력 2 : ");
 		int num2 = sc.nextInt(); // 다음 입력된 정수를 얻어와 num2에 대입
 		
-		System.out.println("실수 입력 : ");
+		System.out.print("실수 입력 : ");
 		double num3 = sc.nextDouble(); // 다음 입력된 실수를 얻어와 num3에 대입
 		
-		System.out.println("단어 입력(2개) : "); // 사과 바나나  
+		System.out.print("단어 입력(2개) : "); // 사과 바나나  
 		String word1 = sc.next();
 		String word2 = sc.next();
 		
