@@ -24,9 +24,9 @@ public class StudentService {
 		// students    의 자료형 : Student[] 
 		// students[0] 의 자료형 : Student
 		
-		students[0] = new Student("24001", "최미영", '여');
-		students[1] = new Student("24002", "홍길동", '남');
-		students[2] = new Student("24003", "신짱구", '남');
+		students[0] = new Student("24001", "최미영", 'F');
+		students[1] = new Student("24002", "홍길동", 'M');
+		students[2] = new Student("24003", "신짱구", 'M');
 				
 		// students[3~9] == null
 		
@@ -97,6 +97,7 @@ public class StudentService {
 		}
 		
 		return students[index];
+
 	}
 	
 	
@@ -135,6 +136,79 @@ public class StudentService {
 		
 		return null;
 	}
+	
+	
+	/**  학생 점수 조회
+	 * @param index
+	 * @return 학생 점수가 기록된 문자열
+	 */
+	public String selectScore(int index) {
+		
+		int html = students[index].getHtml();
+		int css  = students[index].getCss();
+		int js   = students[index].getJs();
+		int java = students[index].getJava();
+		
+		int sum = html + css + js + java; // 합계
+		double avg = sum / 4.0; // 평균
+		
+		String result
+			= String.format("HTML(%d) CSS(%d) JS(%d) Java(%d)", html,css,js,java);
+	
+		result += "\n합계 : " + sum;
+		result += "\n평균 : " + avg;
+		
+		return result;
+	}
+	
+	/** 평균 최고점 최저점 구하기
+	 * @return 최고점 : 홍길동(평균 98.3)
+	 * 		   최저점 : 신짱구(평균 45.7)
+	 */
+	public String selectMaxMin() {
+		
+		Student maxStudent = null; // 최고점 학생
+		Student minStudent = null; // 최저점 학생
+		double maxAverage = 0.0;   // 평균 최고점	
+		double minAverage = 0.0;   // 평균 최저점
+				
+		
+		for(Student s : students) {
+			
+			if(s == null) break; // 학생이 없으면 멈춤
+			
+			int sum = s.getHtml() + s.getCss() + s.getJava() + s.getJs();
+			double avr = sum/4.0;
+				
+			if (maxAverage == 0.0) { // 첫 번째 바퀴인 경우
+				maxStudent = s;
+				minStudent = s;
+				maxAverage = avr;
+				minAverage = avr;
+				continue;
+				
+			}
+			
+			if(maxAverage < avr) { // 기존  최대값보다 현재 평균이 더 큰 경우
+				maxAverage = avr;
+				maxStudent = s;
+			}
+			
+			if(maxAverage > avr) { // 기존  최대값보다 현재 평균이 더 wkrdms
+				minAverage = avr;
+				minStudent = s;
+					
+			}
+			
+			
+			return String.format("최고점 : %s(%.1f) \n" + "최저점 %s(%.1f) \n", 
+									maxStudent.getName(), maxAverage, minStudent.getName(), minAverage);
+			
+		}
+		
+		return null;
+	}
+	
 	
 	
 	
