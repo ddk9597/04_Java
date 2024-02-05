@@ -5,8 +5,8 @@ public class Student {
 	// 필드
 	public static String schoolName = "KH대학교";
 	
-	public static final int MIN_VAlUE = 0;
-	public static final int MAX_VALUE = 0;
+	public static final int MIN_VALUE = 0;
+	public static final int MAX_VALUE = 100;
 	
 	
 	private String name;			// 이름
@@ -48,7 +48,7 @@ public class Student {
 		this.java = java;
 	}
 	
-	public void setHTML(int html) {
+	public void setHtml(int html) {
 		this.html = html;
 	}
 	

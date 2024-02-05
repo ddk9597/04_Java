@@ -17,12 +17,12 @@ public class StudentService {
 		int input = 0; // scanner로 입력받은 메뉴 번호 저장할 변수
 		
 		// 학생 객체를 참조할 참조형 변수
-		Student std1 = null; // null : 참조하는 객체가 없음(변수 안에 주소 없음)
+		Student std1 = new Student("홍길동", "111234", '남');
 		Student std2 = null;
 		
 		// do{}while() 최소 1회 이상 반복함
 		do {
-			
+			// """ """ : 여러 줄에 걸친 텍스트 반환
 			System.out.println("""
 
 ===== 학생 관리 프로그램 =====
@@ -93,8 +93,23 @@ public class StudentService {
 				
 				break;
 				
-			case 6: break;
-			case 7: break;
+			// Java 점수 비교	
+			case 6: 
+				
+				String result = compareJava(std1, std2);
+				System.out.println(result);
+				
+				break;
+			
+			// Html 점수 비교
+			case 7: 
+			
+				String result1 = compareHtml(std1, std2);
+				System.out.println(result1);
+			
+				break;
+				
+			// 프로그램 종료
 			case 0: System.out.println("===== 프로그램 종료 ====="); break;
 			default : 
 			}
@@ -141,10 +156,10 @@ public class StudentService {
 										//   java / html
 		// KH 대학교 / 123123 / 남 / 홍길동 / 0   / 0
 		return String.format("%s/ \n 학번 : %s \n / "
-				+ "성별 : %c \n / 이름 : %s \n "
+				+ "이름 : %s \n / 성별 : %c \n "
 				+ "/ java등급 : %d \n / html 등급 : %d", 
-				Student.schoolName, s.getStudentNumber(), s.getGender(), s.getName()
-				, s.getJava(), s.getHtml());
+				Student.schoolName, s.getStudentNumber(),s.getName(), s.getGender(), 
+				 s.getJava(), s.getHtml());
 
 		
 	}
@@ -180,9 +195,19 @@ public class StudentService {
 	 */
 	private void updateJava(Student s) {
 		
+		System.out.println("Java 역량 변동값 정수로 입력");
+		int before = s.getJava();
+		int input = sc.nextInt();
+		
+		s.setJava(s.getJava() + input); // 입력받은 점수 이전 점수에 증감시키기
+		
+		if(s.getJava() > Student.MAX_VALUE) s.setJava(Student.MAX_VALUE); 
+		
+		if(s.getJava() < Student.MIN_VALUE) s.setJava(Student.MIN_VALUE); 
 		
 		
-		
+		System.out.println("Java 역량 수정 완료");
+		System.out.printf("%d -> %d (%d)\n", before, s.getJava(), input);
 		
 		// [결과출력 예시]
 		// Java 역량 수정 완료
@@ -198,8 +223,6 @@ public class StudentService {
 		
 		// 늘어난 역량은 그대로 출력하되 최대, 최소값만 제한
 		
-		
-		
 	}
 	
 	
@@ -209,8 +232,81 @@ public class StudentService {
 	 * 학생의 Java 역량을 수정
 	 * @param s
 	 */
-	private void updateHTML(Student s) {
-			
+	private void updateHTML(Student u) {
+		
+		System.out.println("HTML 변동 값 정수로 입력");
+		int before = u.getHtml();
+		int input = sc.nextInt();
+		
+		u.setHtml(u.getHtml() + input);
+		if(u.getHtml() > Student.MAX_VALUE) {u.setHtml(Student.MAX_VALUE);}
+		if(u.getHtml() < Student.MIN_VALUE) {u.setHtml(Student.MIN_VALUE);}
+		
+		System.out.println("Html 역량 수정 완료");
+		System.out.printf("%d -> %d (%d)\n", before, u.getHtml(), input);
+		
+	}
+	
+	/** 매개 변수로 전달 받은 두 Student의 Java 점수 비교
+	 * @param s1 
+	 * @param s2
+	 * @return 결과 문자열
+	 */
+	private String compareJava(Student s1, Student s2) {
+		
+		// 전달 받은 s1이 참조하는 Student 객체가 없을 경우
+		if(s1 == null) {
+			System.out.println();
+			return "첫 번째 학생이 등록되지 않았습니다." ;
+		}
+		
+		if(s2 == null) {
+			System.out.println();
+			return "두 번째 학생이 등록되지 않았습니다." ;
+		}
+		
+		String result = String.format("%s : %d / %s : %d \n",s1.getName(), s1.getJava(), 
+				s2.getName(), s2.getJava());
+		
+		// 두 학생의 점수 비교
+		if(s1.getJava() > s2.getJava() ) {
+			return result + s1.getName() + " 의 점수가 더 높습니다" ;
+		}
+		
+		if(s1.getJava() < s2.getJava()) {
+			return result + s2.getName() + "의 점수가 더 높습니다" ;
+		}
+		
+		else return result + "점수가 같습니다";
+		
+		
+	}
+	
+	private String compareHtml(Student s1, Student s2) {
+		
+		if(s1 == null) {
+			System.out.println();
+			return "첫번째 학생이 없어요";
+		}
+		
+		if(s2 == null) {
+			System.out.println();
+			return "두번째 학생이 없어요";
+		}
+		
+		String result1 = String.format("%s : %d / %s : %d \n", s1.getName(), s1.getHtml()
+															, s2.getName(), s2.getHtml());
+		
+		if(s1.getHtml() > s2.getHtml() ) {
+			return result1 + s1.getName() + "의 점수가 더 높습니다" ;
+		}
+		
+		if(s1.getHtml() < s2.getHtml() ) {
+			return result1 + s2.getName() + "의 점수가 더 높습니다" ;
+		}
+		
+		else return result1 + "점수가 같습니다";
+		
 	}
 		
 		
