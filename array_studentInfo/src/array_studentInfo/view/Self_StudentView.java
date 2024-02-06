@@ -76,13 +76,15 @@ public class Self_StudentView {
 		
 		System.out.print("성별 : ");
 		// 성별 : 1글자 char 데이터 타입
-		// charAt(n) -> 문자열의 n번째 글자 가져와 대입한다(0부터 시작함)
+		// charAt(n) -> 문자열의 n번째 글자 가져와 대입한다(0부터 시작함, 띄어쓰기도(공백) 센다)
 		char gender = sc.next().toUpperCase().charAt(0);
 		
 		// Self_StudentService에서 학생 추가 기능(메서드) 호출후 결과 반환 받기
-		boolean result = service.addStudent(new Self_Student(studentNumber, name, gender));
+		boolean result = service.addStudent(new Self_Student(studentNumber, studentName, gender));
 		
-		if(result)
+		if(result) {
+			System.out.println(studentName + "학생이 추가 되었습니다");
+		}
 	}
 	
 	
