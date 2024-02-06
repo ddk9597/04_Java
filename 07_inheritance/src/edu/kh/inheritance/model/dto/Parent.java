@@ -7,12 +7,12 @@ package edu.kh.inheritance.model.dto;
 
 public class Parent /* extends Object */{
 
-	public String lastName = "강";
-	protected String address = "서울시 강동구 길동138";
+	public 	  String lastName = "강";
+	protected String address  = "서울시 강동구 길동138";
+	private   int 	 money    = 100_000_000;
+	private   String car      = "gv90";
 	
-	private int money = 100_000_000;
-	private String car = "gv90";
-	
+	// 생성자는 상속 불가함
 	// 기본 생성자
 	public Parent() {
 		System.out.println("기본 생성자로 부모 객체 생성됨");
