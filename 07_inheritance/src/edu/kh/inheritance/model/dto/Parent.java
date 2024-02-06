@@ -13,11 +13,12 @@ public class Parent /* extends Object */{
 	private   String car      = "gv90";
 	
 	// 생성자는 상속 불가함
+	
 	// 기본 생성자
 	public Parent() {
 		System.out.println("기본 생성자로 부모 객체 생성됨");
 	}
-	
+
 	// 매개변수 생성자
 	public Parent(String lastName, String address, int money, String car) {
 		this.lastName = lastName;

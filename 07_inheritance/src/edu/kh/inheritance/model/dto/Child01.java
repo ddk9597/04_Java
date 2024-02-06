@@ -42,7 +42,8 @@ public class Child01 extends Parent {
 	// Child01의 필드 + 물려받은 필드 문자열로 만들어 반환함
 	public String informChild01() {
 		
-		return String.format("%s / %s/ %d/ %s/ %s", lastName, address, getMoney(), getCar(), computer);// 접근제한자 private으로 생성된 money, car는 간접접근으로
+		return String.format("%s / %s/ %d/ %s/ %s", lastName, address, getMoney(), getCar(), computer);
+		// 접근제한자 private으로 생성된 money, car는 간접접근으로
 	}
 	
 	// 부모로부터 상속 받은 introduce 메서드 오버라이딩 하기(재정의)
