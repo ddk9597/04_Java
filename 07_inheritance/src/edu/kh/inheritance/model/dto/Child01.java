@@ -60,4 +60,43 @@ public class Child01 extends Parent {
 	}
 	
 	
+	
+	// GrandChild에서 final 클래스 확인하기
+	// final 메서드 -> 오버라이딩 불가
+	/**
+	 *  - 메서드의 기능이 변하면 안되는 경우
+	 */
+	public final void onlyChild01() {
+		System.out.println("final 메서드 입니다");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

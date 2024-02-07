@@ -2,7 +2,13 @@ package edu.kh.inheritance.model.dto2;
 
 import edu.kh.inheritance.model.dto.Parent;
 
-public class Child02 extends Parent{
+// final 클래스 -> 상속 불가함
+// 상속이 불가하므로 당연히 오버라이딩도 안됨
+// 제공되는 클래스 그대로 사용해야 하는 경우
+// ex) String
+
+
+public final class Child02 extends Parent{
 
 	private String smartPhone;
 	
