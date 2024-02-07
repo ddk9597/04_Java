@@ -26,6 +26,7 @@ public class Galaxy extends SmartPhone{
 	}
 	
 	// toString() 오버라이딩
+	@Override
 	public String toString() {
 		return "Galaxy AndriodVersion : "+ androidVersion + " / " + super.toString(); 	}
 	

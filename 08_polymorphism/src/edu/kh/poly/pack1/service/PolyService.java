@@ -86,7 +86,7 @@ public class PolyService {
 //		int v2 = s1.getAndroidVersion();
 		
 		// 다운 캐스팅 후 -> 자식 기능 접근 가능
-		// 강제 형변환을 통해 참조변수가 자식 타입으로 ㅎ변해서 자식 객체 참조 가능
+		// 강제 형변환을 통해 참조변수가 자식 타입으로 변해서 자식 객체 참조 가능
 		int v1 = ((Iphone)s1).getIosVersion();
 		int v2 = ((Galaxy)s2).getAndroidVersion();
 		
@@ -149,7 +149,7 @@ public class PolyService {
 		
 		// 실행을 해보니..
 		// SmartPhone.toString()이 아닌
-		// Galaxy.toString() 메서드가 호출됨 == 동적 바인
+		// Galaxy.toString() 메서드가 호출됨 == 동적 바인딩
 		System.out.println(s1.toString());
 		
 	}
