@@ -245,7 +245,7 @@ public class SetService {
 	 * 3회 : [13,17,31,48,13,14]
 	 * 
 	 */
-	public void evolvedottoNumberGenerator() {
+	public void lottoNumberGenerator() {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("금액을 입력하세요(천원 단위) : ");
@@ -299,7 +299,7 @@ public class SetService {
 	 * 3회 : [5, 6, 24, 43, 44, 45]
 	 * </pre>
 	 */
-public void lottoNumberGenerator() {
+	public void evolvedLottoNumberGenerator() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -308,28 +308,39 @@ public void lottoNumberGenerator() {
 		
 		Random random = new Random();
 		
+		
 		// 생성된 로또 번호 묶음을 저장할 List
 		List<Set<Integer>> lottoList = new ArrayList<Set<Integer>>();
 		
 		for(int i=0, end = amount/1000 ; i < end ; i++) {
 			
 			// for문 반복될 때 마다 새로운 Set 객체를 생성
-			Set<Integer> lotto = new TreeSet<Integer>(); 
+			Set<Integer> lotto = new TreeSet<Integer>();
 			
 			while(lotto.size() < 6) {
 				lotto.add( random.nextInt(45) + 1 ); // 1 ~ 45 사이 난수 추가
 			}
 			
 			lottoList.add(lotto); // List에 Set 추가(담기)
-			// -> 반복 시 마다 
-			// List 각 인덱스에 서로 다른 Set 참조 주소가 저장된다!
+			// 반복 시 마다 List 각 인덱스에 서로 다른 Set 참조 주소가 저장된다
 		}
 		
 		// 출력용 반복문
-		for(int i=0 , size = lottoList.size() ; i< size ; i++) {
-			System.out.println((i+1) + "회 : " + lottoList.get(i));
+		for(int i =0, size = lottoList.size() ; i < size ; i++ ) {
+			System.out.println((i + 1) + "회 : " + lottoList.get(i));
 		}
 		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
+
 	}
 		
 }
