@@ -80,7 +80,7 @@ public class PolyServiceStudy {
 		
 		arr[0] = new Instrument("God", "inYourHeart", "everyWhere", false);
 		arr[1] = new Drum("the DDK", "Talmo Boy", "everyWhere", true, "justMimble");
-		arr[2] = new Guitar("fro_k", "Nuke boys", "shutkor", false, "AddictedChan");
+		arr[2] = new Guitar("fro_k", "Nuke boys", "대한민국", false, "AddictedChan");
 		
 		// 향상된 for문 반복문으로 자식 인덱스에 업캐스팅 적용하기
 		// 
@@ -89,11 +89,48 @@ public class PolyServiceStudy {
 			
 		}
 		
+		
 	}
 	
+	public void method6(){
+			
+		Instrument Instrument = new Instrument("신", "어디서나", "어디에나", false); 
+		Drum Drum = new Drum("찬혁", null, null, false, null);
+		Guitar Guitar = new Guitar("fro_k", null, null, false, null);
+
+		printToString(Instrument);
+		printToString(Drum);
+		printToString(Guitar);
+
+	}
+
+	public void printToString(Instrument i){
+
+		System.out.println("전달 받은 객체의 toString() 출력");
+
+		// 실제 참조하는 객체가 자식 객체이면
+		// 자식 객체의 오버라이딩된 toString() ghcnf(동적바인딩)
+		System.out.println(i.toString());
+	}
 	
+	// 다형성 7. 반환형에 업캐스팅 적용
+	public void method7(){
+		printToString(createInstrument(1));
+		printToString(createInstrument(2));
+		printToString(createInstrument(3));
+	}
 	
-	
+	public Instrument createInstrument(int num){
+		if(num==1){
+			return new Instrument();
+		}
+
+		if(num ==2 ){
+			return new Drum();
+		}
+
+		return new Guitar();
+		}
 	
 	
 	

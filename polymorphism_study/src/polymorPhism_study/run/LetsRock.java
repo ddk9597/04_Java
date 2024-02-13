@@ -17,6 +17,9 @@ public class LetsRock {
 		LetsRoooock.method4();
 		System.out.println(" -----메서드5----- ");
 		LetsRoooock.method5();
+		System.out.println(" -----메서드7----- ");
+		LetsRoooock.method7();
+
 	}
 	
 }

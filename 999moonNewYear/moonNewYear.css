@@ -1,0 +1,119 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftMenu{
+    border: 1px solid black;
+    width: 20vw;
+    height: 70vh;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headLine{
+    display: flex;
+    flex-direction :row;
+    justify-content: space-evenly;
+    margin: auto;
+
+    width: 70vw;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+}
+
+.headLine div{
+    cursor: pointer;
+    margin: auto;
+    margin-top: min 25px;
+}
+
+.headLine div div {
+    display: none;
+}
+
+.headLine div:hover div{
+    display: block;
+}
+
+.phonBooth{
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40vh;
+    width: 30vh;
+
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+.numpad{
+    width: 32.33%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 50%;
+
+    user-select: none;
+
+    cursor: pointer;
+}
+
+.inputtedNum{
+    margin-top: 20px;
+    padding: 10px;
+    width: 200px;
+
+}
+
+.numpad:hover{
+    background-color: lightblue;
+}
+
+.excuteBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.excuteBtn>div{
+    border: 1px solid black;
+    border-radius: 10px;
+
+    padding: 10px;
+
+    user-select: none;
+    cursor: pointer;
+}
+
+.excuteBtn :nth-child(1){
+    background-color: rgb(151, 182, 151);
+}
+
+.excuteBtn :nth-child(2){
+    background-color: rgb(74, 158, 231);
+}
+
+.excuteBtn :nth-child(3){
+    background-color: rgb(206, 117, 117);
+}
+
+.emptyBox{
+    height: 200px;
+}
