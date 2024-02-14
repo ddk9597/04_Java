@@ -138,7 +138,8 @@ public class JavaAPIService {
 	}	
 	
 	/** String 의 불변성(변하지 않는 성질 == 상수)
-	 * 
+	 *  객체가 생성되면 그 값을 변경할 수 없고
+	 *  수정된 값은 새로운 String 객체를 생성하여 표현함
 	 * 
 	 */
 	public void method3() {
@@ -151,16 +152,18 @@ public class JavaAPIService {
 		System.out.println(str);
 		System.out.println(System.identityHashCode(str));
 		
-		str = "world";
+		str += " world";
 		System.out.println(str);
 		System.out.println(System.identityHashCode(str));
 		
-		str += "!!!";
+		str += " !!!";
 		System.out.println(str);
 		System.out.println(System.identityHashCode(str));
 		
 		// identityHashCode 가 전부 다른 값 이 나왔다
 		// -> str이 참조하고 있는 객체가 변하고 있다!
+		// -> 새로운 String 객체개 생성됨
+		
 				
 	}
 	
@@ -170,8 +173,8 @@ public class JavaAPIService {
 	 *    추가적으로 객체를 생성하지 않고
 	 *    기존에 존재하는 String 객체의 주소를 반환(재활용)
 	 *    
-	 *    이미 있는 동일한 글자로 String 객체를 생성하면 새로 할당하는 것이  아닌
-	 *    주소만 가져다 쓴다
+	 *    이미 있는 동일한 글자로 String 객체를 생성하면 
+	 *    새로 할당하는 것이 아닌 주소만 가져다 쓴다
 	 * 	
 	 */
 	public void method4() {

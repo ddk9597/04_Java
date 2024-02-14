@@ -121,7 +121,7 @@ public class MapService {
 	 *  
 	 *  Map(Entry) 순차 접근 하기 2
 	 *  
-	 *  - Map.entrySett() 이용하기
+	 *  - Map.entrySet() 이용하기
 	 * 
 	 */
 	public void method3() {
