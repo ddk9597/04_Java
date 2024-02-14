@@ -1,4 +1,4 @@
-package dto;
+package edu.kh.collection.pack1.model.dto;
 
 public class Book {
 	private String title;  // 제목

@@ -1,9 +1,9 @@
-package service;
+package edu.kh.collection.pack1.model.service;
 
 import java.util.List;
 import java.util.Scanner;
 
-import dto.Book;
+import edu.kh.collection.pack1.model.dto.Book;
 
 import java.util.ArrayList;
 
