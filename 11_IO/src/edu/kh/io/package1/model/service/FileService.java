@@ -17,21 +17,23 @@ public class FileService {
 	 * - 파일 생성, 제거, 이름, 크기, 마지막 수정일, 존재 여부 등의 기능 제공
 	 * 
 	 * * - File 클래스 메서드
-	 * 
-	 * 	boolean  mkdir()          : 디렉토리 생성
-	 * 	boolean  mkdirs()         : 경로상의 모든 디렉토리 생성
-	 * 	boolean  createNewFile()  : 파일 생성
-	 * 	boolean  delete()         : 파일/디렉토리 삭제
-	 * 	String   getName()        : 파일 이름 반환
-	 * 	String   parent()         : 파일이 저장된 디렉토리 반환
-	 * 	String   getPath()        : 전체 경로 반환
-	 * 	boolean  isFile()         : 현재 File 객체가 관리하는게 파일이면 true
-	 * 	boolean  isDirectory()    : 현재 File 객체가 관리하는게 디렉토리 true
-	 * 	boolean  exists()         : 파일/디렉토리가 존재하면 true, 아님 false
-	 * 	long     length()         : 파일 크기 반환
-	 * 	long     lastModified()   : 파일 마지막 수정일 (1970.01.01 09:00 부터 현재까지 지난 시간을 ms 단위로 반환)
-	 * 	String[] list()           : 디렉토리 내 파일 목록을 String[] 배열로 반환 -> 이름만 반환
-	 * 	File[]   listFiles()      : 디렉토리 내 파일 목록을 File[] 배열로 반환   -> File클래스의 메서드 적용 가능
+	 *  
+	 *  리턴타입  Methods			설명
+	 *  
+	 * 	boolean   mkdir()          : 디렉토리 생성
+	 * 	boolean   mkdirs()         : 경로상의 모든 디렉토리 생성
+	 * 	boolean   createNewFile()  : 파일 생성
+	 * 	boolean   delete()         : 파일/디렉토리 삭제
+	 * 	String    getName()        : 파일 이름 반환
+	 * 	String    parent()         : 파일이 저장된 디렉토리 반환
+	 * 	String    getPath()        : 전체 경로 반환
+	 * 	boolean   isFile()         : 현재 File 객체가 관리하는게 파일이면 true
+	 * 	boolean   isDirectory()    : 현재 File 객체가 관리하는게 디렉토리 true
+	 * 	boolean   exists()         : 파일/디렉토리가 존재하면 true, 아님 false
+	 * 	long      length()         : 파일 크기 반환
+	 * 	long      lastModified()   : 파일 마지막 수정일 (1970.01.01 09:00 부터 현재까지 지난 시간을 ms 단위로 반환)
+	 * 	String[]  list()           : 디렉토리 내 파일 목록을 String[] 배열로 반환 -> 이름만 반환
+	 * 	File[]    listFiles()      : 디렉토리 내 파일 목록을 File[] 배열로 반환   -> File클래스의 메서드 적용 가능
 	 * 
 	 * */
 	

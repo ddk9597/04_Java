@@ -49,7 +49,7 @@ public class ByteService {
 			// 기존 파일이 존재하면 내용을 덮어쓰기 한다
 			
 			// new FileOutputStream("경로", true)
-			// -> 기존 파일 이 존재파면 내용을 이어쓰기함
+			// -> 기존 파일 이 존재하면 내용을 이어쓰기함
 			
 				fos = new FileOutputStream("/io_test/20240215/바이트기반_테스트.txt", true);
 				
@@ -108,9 +108,9 @@ public class ByteService {
 			
 			try{
 					if(fos != null) { // 스트림이 정상 생성된 경우
+						fos.close(); // 스트림을 닫아 없앤다
 				}
 					
-					fos.close(); // 스트림을 닫아 없앤다
 					
 			} catch(IOException e) {
 				

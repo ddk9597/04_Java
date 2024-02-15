@@ -706,11 +706,61 @@ Exception 종류
 
 + br.readLine() : 입력된 한 줄 엔터까지 읽어오기
 
-
-    
-
-
 Excpetion : 코드로 처리 가능한 에러
 Exception Handling : Exception 발생 시 처리하는 구문
 
 // ---------------------------------------------------------------- //
+
+IO (Input, Output) 입출력
+- 컴퓨터 내 외부 장치와 프로그램간의 데이터를 주고 받는 것
+- 입출력 데이터 처리 기능 : Stream(공통)
+
+**** IO 관련 코드는 IOException 발생할 가능성 높음
+ --> try ~ catch ~ finally 구문 등으로 예외처리 작성 필수!!
+
+입력과 출력은 서로 다른 기능임
+Stream : 단방향 소통(일방적)
+Piped Steam : 양방향 소통
+
+File 클래스 : 파일 시스템의 파일을 표현하는 클래스
+ 기능 
+ - 파일크기, 속성, 이름 등의 정보
+ - 파일 생성 및 삭제 
+
+ File 클래스 메서드
+	 
+    리턴타입  Methods			설명
+    
+    boolean   mkdir()          : 디렉토리 생성
+    boolean   mkdirs()         : 경로상의 모든 디렉토리 생성
+    boolean   createNewFile()  : 파일 생성
+    boolean   delete()         : 파일/디렉토리 삭제
+    String    getName()        : 파일 이름 반환
+    String    parent()         : 파일이 저장된 디렉토리 반환
+    String    getPath()        : 전체 경로 반환
+    boolean   isFile()         : 현재 File 객체가 관리하는게 파일이면 true
+    boolean   isDirectory()    : 현재 File 객체가 관리하는게 디렉토리 true
+    boolean   exists()         : 파일/디렉토리가 존재하면 true, 아님 false
+    long      length()         : 파일 크기 반환
+    long      lastModified()   : 파일 마지막 수정일 (1970.01.01 09:00 부터 현재까지 지난 시간을 ms 단위로 반환)
+    String[]  list()           : 디렉토리 내 파일 목록을 String[] 배열로 반환 -> 이름만 반환
+    File[]    listFiles()      : 디렉토리 내 파일 목록을 File[] 배열로 반환   -> File클래스의 메서드 적용 가능
+
+// ---------------------------------------------------------------- //
+
+Stream
+ - Java에서 Data가 이동하는 통로
+ - 기본적으로 단방향
+
+Byte 기반 Stream 
+ - 1 Byte 단위로 데이터를 입/출력하는 Stream
+ - 최상위 인터페이스 : InputStream, OutputStream
+ - 문자열, 이미지, 영상, 오디오 등 모든 것을 입/출력 가능
+ - 1바이트 단위로 입출력함(통로가 좁음) -> 속도가 느림
+
+
+
+// ---------------------------------------------------------------- //
+// ---------------------------------------------------------------- //
+// ---------------------------------------------------------------- //
+
