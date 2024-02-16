@@ -716,7 +716,7 @@ IO (Input, Output) 입출력
 - 입출력 데이터 처리 기능 : Stream(공통)
 
 **** IO 관련 코드는 IOException 발생할 가능성 높음
- --> try ~ catch ~ finally 구문 등으로 예외처리 작성 필수!!
+ --> try ~ catch ~ finally / throws 등으로 예외처리 작성 필수!!
 
 입력과 출력은 서로 다른 기능임
 Stream : 단방향 소통(일방적)
@@ -764,6 +764,24 @@ BufferedStream
     - 예시 : 동영상 재상 중에 미리 앞에 재생될 부분을 다운받아
              영상이 끊김 엇이 재생하게 함
     - 다운 받아서 저장하는 공간이 버퍼
+
+메인 스트림 + 보조스트림(BufferedStream)이용. 파일에 값 입력하기
+순서
+    1. 참조변수 선언(파일 위치 및 이름)
+    2. 보조 스트림 선언
+    3. try-catch-finally
+    4. 3.내에 1. 파일 위치 확정
+    5. 2. 4.를 이용해 보조스트림 생성
+    6. 값 입력 받기 (StringBuilder로)
+    6. StringBuilder -> String
+ 
+
+
+ + FileOutputStream("경로") : 경로에 작성된 파일과 연결된 파일 출력 스트림 객체 생성
+ + System.nanoTime() -> 1970.01.01 ~ 현재 시간 까지의 차이를 ns(nano second)단위로 변환
+ + long StartTime = System.nanoTime(); -> 작업 소요 시간 측정 시작점
+ + lond endTime = System.nanoTime();   -> 작업 소요 시간 측정 종료점
+ 
 
 // ---------------------------------------------------------------- //
 // ---------------------------------------------------------------- //

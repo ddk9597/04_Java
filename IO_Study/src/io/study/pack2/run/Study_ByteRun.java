@@ -7,8 +7,10 @@ public class Study_ByteRun {
 	public static void main(String[] args) {
 		Study_ByteService service = new Study_ByteService();
 		
-		service.method1();
-		
+//		service.method1();
+//		service.BufferedFileByteoutput();
+//		service.fileOutputByBuffered();
+		service.BfStream3();
 		
 	}
 	

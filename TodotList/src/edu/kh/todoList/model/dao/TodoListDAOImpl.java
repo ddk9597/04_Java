@@ -157,16 +157,46 @@ public class TodoListDAOImpl implements TodoListDAO{
 		
 	}
 
+	
+	
 	@Override
 	public boolean todoUpdate(int index, String title, String detail) throws FileNotFoundException, IOException {
-		// TODO Auto-generated method stub
+		
+		// 수정된 제목, 내용을 이용해서 Todo 객체 생성
+		Todo todo = new Todo();
+		todo.setTitle(title);
+		todo.setDetail(detail);
+		
+		// index 번째 요소의 complete, regDate 값을 얻어 와 todo에 세팅
+		todo.setComplete( todoList.get(index).isComplete() );
+		todo.setRegDate( todoList.get(index).getRegDate() );
+		
+		// E e List.set(int index, E e) : index번째 요소를 매개변수 e로 바꾸고 이전 요소를 반환
+		// -> 없으면 null 반환 됨
+		if( todoList.set(index, todo) !=null ) { // 수정 성공
+			
+			saveFile(); // 변경된 todo 저장
+			return true;
+		}
+		
 		return false;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public Todo todoDelete(int index) throws FileNotFoundException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// index 범위 검사
+		if(index < 0 || index >= todoList.size() ) return null;
+		
+		// todoList 에서 index 번째 요소 삭제 후 저장
+		Todo todo = todoList.remove(index);
+		
+		saveFile();
+		
+		return todo;
 	}
 
 }

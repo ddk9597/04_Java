@@ -225,8 +225,63 @@ public class TodoListView {
 	
 	// ------------------------------------------------------------------------------------------------------
 	
-	private void todoUpdate() {
-		// TODO Auto-generated method stub
+	/** 5. 할 일 수정 
+	 *  - 인덱스 번호를 입력 받아 정상 범위 내의 index 값인지 확인
+	 *  - 정상 범위 index인 경우 제목, 상세 내용 수정
+	 * @throws IOException 
+	 * @throws NumberFormatException 
+	 * 
+	 */
+	private void todoUpdate() throws NumberFormatException, IOException {
+		System.out.println(" \n ========================= [5.Todo Update] =========================");
+		System.out.print(" 수정할 인덱스 번호 입력 : ");
+		int index = Integer.parseInt(br.readLine());
+		
+		// 입력 받은 인덱스가 정상범위 내에 위치하는지 확인하기
+		// -> 2번 기능에서 사용했던 todoDetailview기능 재활용하기
+		
+		// 상세 조회 서비스 재활용(인덱스 범위 초과 시 null 반환)
+		String todoDetail = service.todoDetailView(index);
+		
+		if(todoDetail == null) {
+			System.out.println("#### 해당 인덱스가 존재하지 않습니다 ####");
+			return;
+		}
+		
+		// 수정 전 상세 내용 출력
+		
+		System.out.println("@@@@@@@@@@@ [수정 전] @@@@@@@@@@@");
+		System.out.println(todoDetail);
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		
+		// 수정 할 제목, 내용 입력 받기
+		System.out.print(" 수정 할 제목 입력 : ");
+		String title = br.readLine();
+		
+		System.out.println("수정 할 세부 내용 작성 (입력 종료 시 !wq 작성후 엔터)");
+		System.out.println(" ================================================== ");
+		
+		StringBuilder sb = new StringBuilder();
+		
+		while(true) {
+			
+			// 문자열 입력 받기
+			String content = br.readLine(); // !wq -> break;
+			
+			if(content.equals("!wq")) break; // 반복 종료
+			
+			sb.append(content); // 입력 받은 값 누적
+			sb.append("\n");	// 줄 바꿈 추가
+			
+			System.out.println("===============================");
+			
+			// 수정 서비스 호출 후 결과 반환 받기
+			boolean result = service.todoUpdate( index, title, sb.toString() );
+			
+			if(result)  System.out.println("[수정 되었습니다.]");
+			else 		System.out.println("### [수정 실패] ###");
+		}
+		
 		
 	}
 
@@ -234,8 +289,26 @@ public class TodoListView {
 	
 	// ------------------------------------------------------------------------------------------------------
 	
-	private void todoDelete() {
-		// TODO Auto-generated method stub
+	/** 6. todoDelete
+	 *  할일 삭제하기
+	 *  - 인덱스 번호 입력 받아서 일치하는 요소 삭제
+	 * @throws IOException 
+	 * @throws NumberFormatException 
+	 */
+	private void todoDelete() throws NumberFormatException, IOException {
+		System.out.println(" \n ========================= [6.Todo Delete] =========================");
+		System.out.println(" 삭제할 인덱스 번호를 입력하세요 ");
+		int index = Integer.parseInt(br.readLine());
+		
+		// 삭제 서비스 호출 후 결과 반환 받기
+		String title = service.todoDelete(index);
+		
+		if(title == null) { // 입력 값이 인덱스 범위 초과한 경우
+			
+			System.out.println("인덱스가 존재하지 않습니다");
+			
+		} else System.out.printf("[%s]가 삭제 되었습니다 \n", title);
+		
 		
 	}
 

@@ -120,7 +120,7 @@ public class TodoListServiceImpl implements TodoListService{
 		return index;
 		
 	}
-
+	/* todoComplete */
 	@Override
 	public boolean todoComplete(int index) throws FileNotFoundException, IOException {
 		return dao.todoComplete(index);
@@ -128,15 +128,27 @@ public class TodoListServiceImpl implements TodoListService{
 		// Service 메서드 별도 처리 하지 않음
 		// 아무것도 안한다고 해서 서비스를 사용하지 않으면 안된다!!!
 	}
-
+	
+	
+	/* todo Update */
 	@Override
 	public boolean todoUpdate(int index, String title, String detail) throws FileNotFoundException, IOException {
-		return false;
+		return dao.todoUpdate(index, title, detail);
+		
+		
 	}
 
+	/* todoDelete */
 	@Override
 	public String todoDelete(int index) throws FileNotFoundException, IOException {
-		return null;
+		
+		// DAO 메서드 호출 후 결과 반환 받기
+		// -> 삭제된 Todo 또는 null
+		Todo todo = dao.todoDelete(index);
+		
+		if(todo == null) return null;
+		
+		return todo.getTitle(); // 제목 반환
 	}
 
 	
