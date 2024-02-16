@@ -79,6 +79,11 @@ public class Study_ByteService {
 	 */
 	public void BufferedFileByteoutput() {
 		
+		/* 버퍼 : ㄷ[ㅔ
+		 * 
+		 * 
+		 * */
+		
 	}
 	
 	
