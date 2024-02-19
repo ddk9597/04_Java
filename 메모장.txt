@@ -773,7 +773,10 @@ BufferedStream
     4. 3.내에 1. 파일 위치 확정
     5. 2. 4.를 이용해 보조스트림 생성
     6. 값 입력 받기 (StringBuilder로)
-    6. StringBuilder -> String
+    7. StringBuilder -> String
+    8. String으로 변환 한 값을 바이트로 변환 후 파일에 적용하기
+    9. Stream 비우기 * 
+    10. finally 구문 Stream 닫기
  
 
 
